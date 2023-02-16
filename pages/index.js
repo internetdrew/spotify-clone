@@ -7,24 +7,13 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Spotify 2.0</title>
-        <meta
-          name='description'
-          content='A fresh build of Spotify using Next JS'
-        />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <h1>Spotify</h1>
-
+    <div className='bg-black h-screen overflow-hidden'>
       <main>
         <Sidebar />
         {/* center */}
       </main>
 
       <div>{/* Player */}</div>
-    </>
+    </div>
   );
 }
