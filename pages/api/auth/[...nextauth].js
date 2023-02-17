@@ -9,7 +9,6 @@ const refreshAccessToken = async token => {
     spotifyApi.setRefreshToken(token.refreshToken);
 
     const { body: refreshedToken } = await spotifyApi.refreshAccessToken();
-    console.log('refreshed token is ', refreshedToken);
 
     return {
       ...token,
@@ -44,7 +43,6 @@ export const authOptions = {
     async jwt({ token, account, user }) {
       // initial sign in
       if (account && user) {
-        console.log('initial login');
         return {
           ...token,
           accessToken: account.access_token,
@@ -56,12 +54,10 @@ export const authOptions = {
 
       // return prev token if the access token has not expired yet
       if (Date.now() < token.accessTokenExpires) {
-        console.log('access token is valid');
         return token;
       }
 
       // Access token has expired, needs refreshing
-      console.log('access token expired, refreshing...');
       return await refreshAccessToken(token);
     },
 
