@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import {
   HomeIcon,
   MagnifyingGlassIcon,
@@ -8,14 +8,26 @@ import {
   RssIcon,
 } from '@heroicons/react/24/outline';
 import { signOut, useSession } from 'next-auth/react';
+import useSpotify from '@/hooks/useSpotify';
 
 const Sidebar = () => {
+  const spotifyApi = useSpotify();
   const { data: session, status } = useSession();
+  const [playlists, setPlaylists] = useState([]);
+
+  useEffect(() => {
+    if (spotifyApi.getAccessToken()) {
+      spotifyApi.getUserPlaylists().then(data => {
+        setPlaylists(data.body.items);
+      });
+      console.log(playlists);
+    }
+  }, [session, spotifyApi]);
 
   return (
     <div
       className='text-gray-500 p-5 text-sm border-r
-    border-gray-900'
+    border-gray-900 overflow-y-scroll h-screen scrollbar-hide'
     >
       <div className='space-y-4'>
         <button
