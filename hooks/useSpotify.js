@@ -6,16 +6,15 @@ const useSpotify = () => {
   const { data: session, status } = useSession();
 
   useEffect(() => {
-    if (!session) return;
+    if (session) {
+      if (session.error === 'RefreshAccessTokenError') {
+        console.log('Confirmed session has error value');
 
-    if (session.error === 'RefreshAccessTokenError') {
-      console.log('Confirmed session has error value');
-
-      signIn();
-      return;
+        signIn();
+      }
     }
 
-    spotifyApi.setAccessToken(session.user.accessToken);
+    spotifyApi.setAccessToken(session.user?.accessToken);
   }, [session]);
 
   return spotifyApi;
