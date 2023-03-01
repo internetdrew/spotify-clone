@@ -35,8 +35,6 @@ const Center = () => {
       .catch(error => console.error(`Something went wrong: ${error}`));
   }, [spotifyApi, playlistId]);
 
-  console.log(playlist);
-
   return (
     <div className='flex-grow text-white'>
       <header className='absolute top-5 right-8'>

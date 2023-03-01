@@ -5,8 +5,9 @@ import Sidebar from '@/components/Sidebar';
 import Center from '@/components/Center';
 import useSpotify from '@/hooks/useSpotify';
 import { getSession } from 'next-auth/react';
+import { useEffect } from 'react';
 
-export default function Home() {
+export default function Home(props) {
   return (
     <div className='bg-black h-screen overflow-hidden'>
       <main className='flex'>
