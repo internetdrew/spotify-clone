@@ -36,7 +36,7 @@ const Center = () => {
   }, [spotifyApi, playlistId]);
 
   return (
-    <div className='flex-grow text-white'>
+    <div className='flex-grow h-screen'>
       <header className='absolute top-5 right-8'>
         <div className='flex items-center bg-black space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-3'>
           <img className='rounded-full w-10 h-10' src='' alt='' />
@@ -56,7 +56,7 @@ const Center = () => {
           <h1 className='text-2xl md:text-3xl lg:text-5xl'>{playlist?.name}</h1>
         </div>
       </section>
-      <div>
+      <div className='h-full overflow-y-scroll'>
         <Songs />
       </div>
     </div>
