@@ -9,7 +9,10 @@ const useSpotify = () => {
     if (!session) return;
 
     if (session.error === 'RefreshAccessTokenError') {
+      console.log('Confirmed session has error value');
+
       signIn();
+      return;
     }
 
     spotifyApi.setAccessToken(session.user.accessToken);
