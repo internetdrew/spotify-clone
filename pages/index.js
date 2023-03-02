@@ -3,9 +3,7 @@ import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import Sidebar from '@/components/Sidebar';
 import Center from '@/components/Center';
-import useSpotify from '@/hooks/useSpotify';
 import { getSession } from 'next-auth/react';
-import { useEffect } from 'react';
 
 export default function Home() {
   return (
