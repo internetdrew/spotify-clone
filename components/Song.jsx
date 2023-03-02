@@ -2,21 +2,20 @@ import useSpotify from '@/hooks/useSpotify';
 import { millisToMinsAndSecs } from '@/lib/time';
 import { currentTrackIdState, isPlayingState } from '@/atoms/songAtom';
 import { useRecoilState } from 'recoil';
-import { useSession } from 'next-auth/react';
 
-const Song = ({ order, track }) => {
+const Song = ({ offset, track, playlist }) => {
   const spotifyApi = useSpotify();
   const [currentTrackId, setCurrentTrackId] =
     useRecoilState(currentTrackIdState);
   const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
 
-  console.log(track);
+  console.log(playlist);
 
   const playSong = () => {
     setCurrentTrackId(track.track.id);
     setIsPlaying(true);
     spotifyApi
-      .play({ context_uri: track?.track.uri })
+      .play({ context_uri: playlist?.uri, offset: { position: offset } })
       .then(data => console.log(data))
       .catch(err => console.error(err));
   };
@@ -24,7 +23,7 @@ const Song = ({ order, track }) => {
   return (
     <div className='grid grid-cols-2 py-4 px-5 hover:bg-gray-500 rounded-lg cursor-pointer'>
       <div className='flex items-center space-x-4' onClick={playSong}>
-        <p>{order + 1}</p>
+        <p>{offset + 1}</p>
         <img
           src={track?.track.album.images[0].url}
           alt=''

@@ -7,7 +7,6 @@ const useSpotify = () => {
 
   useEffect(() => {
     if (session) {
-      console.log(session);
       if (session.error === 'RefreshAccessTokenError') {
         console.log('Confirmed session has error value');
 
