@@ -1,14 +1,26 @@
 import useSpotify from '@/hooks/useSpotify';
-import React from 'react';
 import { millisToMinsAndSecs } from '@/lib/time';
+import { currentTrackIdState, isPlayingState } from '@/atoms/songAtom';
+import { useRecoilState } from 'recoil';
+import { useSession } from 'next-auth/react';
 
 const Song = ({ order, track }) => {
   const spotifyApi = useSpotify();
+  const [currentTrackId, setCurrentTrackId] =
+    useRecoilState(currentTrackIdState);
+  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
+
   console.log(track);
+
+  const playSong = () => {
+    setCurrentTrackId(track.track.id);
+    setIsPlaying(true);
+    spotifyApi.play({ context_uri: track?.track.album.uri });
+  };
 
   return (
     <div className='grid grid-cols-2 py-4 px-5 hover:bg-gray-500 rounded-lg cursor-pointer'>
-      <div className='flex items-center space-x-4'>
+      <div className='flex items-center space-x-4' onClick={playSong}>
         <p>{order + 1}</p>
         <img
           src={track?.track.album.images[0].url}

@@ -65,6 +65,7 @@ export const authOptions = {
       session.user.accessToken = token.accessToken;
       session.user.refreshToken = token.refreshToken;
       session.user.username = token.username;
+      session.accessToken = token.accessToken;
 
       return session;
     },
