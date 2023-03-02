@@ -9,8 +9,6 @@ const Song = ({ offset, track, playlist }) => {
     useRecoilState(currentTrackIdState);
   const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
 
-  console.log(playlist);
-
   const playSong = () => {
     setCurrentTrackId(track.track.id);
     setIsPlaying(true);
