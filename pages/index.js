@@ -7,7 +7,7 @@ import useSpotify from '@/hooks/useSpotify';
 import { getSession } from 'next-auth/react';
 import { useEffect } from 'react';
 
-export default function Home(props) {
+export default function Home() {
   return (
     <div className='bg-black h-screen overflow-hidden'>
       <main className='flex'>

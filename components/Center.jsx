@@ -56,7 +56,7 @@ const Center = () => {
           <h1 className='text-2xl md:text-3xl lg:text-5xl'>{playlist?.name}</h1>
         </div>
       </section>
-      <div className='h-full overflow-y-scroll'>
+      <div className='h-full overflow-y-scroll scrollbar-hide'>
         <Songs />
       </div>
     </div>
