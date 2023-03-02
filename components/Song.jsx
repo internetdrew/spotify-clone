@@ -7,7 +7,7 @@ const Song = ({ order, track }) => {
   console.log(track);
 
   return (
-    <div className='grid grid-cols-2'>
+    <div className='grid grid-cols-2 py-4 px-5 hover:bg-gray-500 rounded-lg cursor-pointer'>
       <div className='flex items-center space-x-4'>
         <p>{order + 1}</p>
         <img
@@ -22,7 +22,7 @@ const Song = ({ order, track }) => {
       </div>
 
       <div className='flex items-center justify-between ml-auto md:ml-0'>
-        <p className='hidden md:inline'>{track?.track.album.name}</p>
+        <p className='w-40 hidden md:inline'>{track?.track.album.name}</p>
         <p>{millisToMinsAndSecs(track?.track.duration_ms)}</p>
       </div>
     </div>
