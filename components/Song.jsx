@@ -1,5 +1,6 @@
 import useSpotify from '@/hooks/useSpotify';
 import React from 'react';
+import { millisToMinsAndSecs } from '@/lib/time';
 
 const Song = ({ order, track }) => {
   const spotifyApi = useSpotify();
@@ -15,14 +16,14 @@ const Song = ({ order, track }) => {
           className='h-10 w-10'
         />
         <div>
-          <p>{track?.track.name}</p>
+          <p className='w-36 lg:w-64 truncate'>{track?.track.name}</p>
           <p>{track?.track.artists[0].name}</p>
         </div>
       </div>
 
       <div className='flex items-center justify-between ml-auto md:ml-0'>
         <p className='hidden md:inline'>{track?.track.album.name}</p>
-        <p>duration</p>
+        <p>{millisToMinsAndSecs(track?.track.duration_ms)}</p>
       </div>
     </div>
   );

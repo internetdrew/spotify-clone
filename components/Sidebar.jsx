@@ -74,7 +74,7 @@ const Sidebar = () => {
           <p
             key={playlist.id}
             onClick={() => setPlaylistId(playlist.id)}
-            className='cursor-pointer hover:text-white'
+            className='cursor-pointer hover:text-white truncate'
           >
             {playlist.name}
           </p>
