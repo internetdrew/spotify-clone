@@ -17,6 +17,7 @@ const Song = ({ offset, track, playlist }) => {
       .then(data => console.log(data))
       .catch(err => console.error(err));
   };
+  console.log(currentTrackId);
 
   return (
     <div className='grid grid-cols-2 py-4 px-5 hover:bg-gray-500 rounded-lg cursor-pointer'>

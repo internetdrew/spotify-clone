@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { currentTrackIdState, isPlayingState } from '@/atoms/songAtom';
+import useSongInfo from '@/hooks/useSongInfo';
 
 const Player = () => {
   const spotifyApi = useSpotify();
@@ -11,6 +12,9 @@ const Player = () => {
     useRecoilState(currentTrackIdState);
   const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
   const [volume, setVolume] = useState(50);
+  const songInfo = useSongInfo();
+
+  console.log(songInfo);
 
   return (
     <div>
