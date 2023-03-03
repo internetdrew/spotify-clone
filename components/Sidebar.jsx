@@ -29,7 +29,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className='text-gray-500 pl-5 pt-5 pb-5 pr-1 text-xs lg:text-sm border-r
+      className='text-gray-500 pl-5 pt-5 pb-36 pr-1 text-xs lg:text-sm border-r
     border-gray-900 h-screen sm:max-w-[12rem] lg:max-w-[15rem] hidden md:inline-flex flex-col'
     >
       <div className='space-y-4 mb-4'>
@@ -66,7 +66,10 @@ const Sidebar = () => {
         {playlists.map(playlist => (
           <p
             key={playlist.id}
-            onClick={() => setPlaylistId(playlist.id)}
+            onClick={() => {
+              console.log(playlist);
+              setPlaylistId(playlist.id);
+            }}
             className='cursor-pointer hover:text-white truncate'
           >
             {playlist.name}
