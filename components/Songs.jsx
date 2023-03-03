@@ -10,14 +10,16 @@ const Songs = () => {
 
   return (
     <div className='px-8 flex flex-col space-y-1 pb-28 text-white'>
-      {validTracks.map((track, i) => (
-        <Song
-          key={track?.track?.id}
-          track={track}
-          offset={i}
-          playlist={playlist}
-        />
-      ))}
+      {validTracks
+        ? validTracks.map((track, i) => (
+            <Song
+              key={track?.track?.id}
+              track={track}
+              offset={i}
+              playlist={playlist}
+            />
+          ))
+        : null}
     </div>
   );
 };

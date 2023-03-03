@@ -66,10 +66,7 @@ const Sidebar = () => {
         {playlists.map(playlist => (
           <p
             key={playlist.id}
-            onClick={() => {
-              console.log(playlist);
-              setPlaylistId(playlist.id);
-            }}
+            onClick={() => setPlaylistId(playlist.id)}
             className='cursor-pointer hover:text-white truncate'
           >
             {playlist.name}
