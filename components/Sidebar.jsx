@@ -47,7 +47,7 @@ const Sidebar = () => {
         </button>
         <hr className='border-t-[0.1px] border-gray-900 ' />
 
-        <button className='flex items-center space-x-2 hover:text-white'>
+        <button className='flex items-center space-x-2 transition  ease-out hover:text-white duration-300'>
           <PlusIcon className='h-5 w-5' />
           <p>Create Playlist</p>
         </button>
